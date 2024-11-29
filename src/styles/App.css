@@ -1,0 +1,119 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  header button {
+    background-color: #ffffff;
+    color: #007bff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  header button:hover {
+    background-color: #f1f1f1;
+  }
+  
+ 
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  
+  nav ul li a {
+    color: #007bff;
+  }
+  
+  nav ul li a:hover {
+    color: #0056b3;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #007bff;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  nav {
+    margin-top: 50px; /* Espacio entre el encabezado y las opciones */
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto; /* Centra las opciones horizontalmente */
+    display: flex;
+    justify-content: space-around;
+    max-width: 800px; /* Ajusta el ancho máximo */
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  nav ul li:hover {
+    transform: scale(1.1); /* Agranda el recuadro */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+    cursor: pointer; /* Cambia el cursor a pointer */
+  }

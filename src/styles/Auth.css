@@ -1,0 +1,102 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #007bff, #0056b3); /* Degradado azul */
+  }
+  
+  
+  .auth-box {
+    background-color: white; /* Fondo del formulario */
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%;
+    max-width: 400px; /* Ancho máximo */
+    text-align: center;
+  }
+  
+  
+  .auth-box h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+    font-size: 24px;
+  }
+  
+  .auth-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .auth-box input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  
+  .auth-box input:focus {
+    border-color: #007bff;
+  }
+  
+  .auth-box button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .auth-box button:hover {
+    background-color: #0056b3;
+  }
+  
+  .auth-box p {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .auth-box a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .auth-box a:hover {
+    text-decoration: underline;
+  }
+
+  .auth-box select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 15px;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s ease;
+  }
+  
+  .auth-box select:focus {
+    border-color: #007bff;
+  }
+  
+  .auth-box select option {
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  .auth-box .role-label {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  
