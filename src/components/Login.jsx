@@ -42,27 +42,31 @@ const Login = () => {
           body: JSON.stringify(formData),
         }
       );
-
       const data = await response.json();
 
-      if (response.status === 200) {
-        // Extraer token y rol del cuerpo de la respuesta
+      // Validar la respuesta devuelta por el backend
+      if (data.body && data.body.message === "Login exitoso") {
+        // Extraer token, rol y facultad (tenant_id) del formulario
         const { token, role } = data.body;
+        const { tenant_id } = formData;
 
-        // Guardar el token y el rol en el contexto global
+        // Guardar el token, rol y facultad en el contexto global
         setAuthData({
           token: token,
           role: role,
+          facultad: tenant_id, // Guardar el tenant_id como facultad
         });
 
         // Redirigir al Home
         console.log(token)
-        console.log(role)
+        console.log(tenant_id)
         navigate("/home");
       } else {
-        setErrorMessage(data.body.message || "Error al iniciar sesión.");
+        // Si el mensaje no es "Login exitoso", asumimos error
+        setErrorMessage(data.body.message || "Usuario o contraseña incorrectos.");
       }
     } catch (error) {
+      console.log(error)
       setErrorMessage("Error de conexión. Inténtalo nuevamente.");
     }
   };

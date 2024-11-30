@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [authData, setAuthData] = useState({
     token: null,
     role: null,
+    facultad: null, // Nueva variable global para almacenar el tenant_id
   });
 
   return (
