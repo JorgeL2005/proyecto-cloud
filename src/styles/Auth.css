@@ -99,4 +99,63 @@
     text-align: left;
   }
   
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+
+  .form-scroll-container {
+    max-height: 400px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    padding-right: 10px;
+  }
+  
+  .form-scroll-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .form-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 5px;
+  }
+  
+  .auth-box label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  .auth-box select,
+  .auth-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .auth-box select:focus,
+  .auth-box input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .auth-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .auth-box button:hover {
+    background-color: #0056b3;
+  }
+  
   

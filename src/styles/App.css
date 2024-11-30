@@ -34,10 +34,12 @@ body {
     font-size: 16px;
     cursor: pointer;
     font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.2s ease; /* Transición suave */
   }
   
   header button:hover {
     background-color: #f1f1f1;
+    transform: scale(1.1); /* Agranda el botón al 110% */
   }
   
  
