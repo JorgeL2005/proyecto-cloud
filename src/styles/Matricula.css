@@ -1,0 +1,44 @@
+.matricula-container {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(to bottom right, #007bff, #00c6ff);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.matricula-actions h2 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.action-button {
+  background-color: white;
+  color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #007bff;
+  color: white;
+  transform: scale(1.1);
+}
+
+.action-link {
+  text-decoration: none;
+}

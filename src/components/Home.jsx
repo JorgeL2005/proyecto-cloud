@@ -3,7 +3,7 @@ import { Routes, Route, Link, useNavigate, useLocation } from "react-router-dom"
 import ProfileIcon from "./ProfileIcon";
 import Notes from "./Notes";
 import Courses from "./Courses";
-import AcademicProgress from "./AcademicProgress";
+import Matricula from "./Matricula";
 import Fail from "./Fail";
 import "../styles/Home.css"; // Archivo CSS actualizado
 import { AuthContext } from "../context/AuthContext"; // Importar el contexto global
@@ -51,7 +51,7 @@ const Home = () => {
             </Link>
           </div>
           <div className="home-section">
-            <Link to="progress" className="home-link">
+            <Link to="matricula" className="home-link">
               <h2>Matricula</h2>
               <p>Matriculate en los cursos que quieras.</p>
             </Link>
@@ -69,7 +69,7 @@ const Home = () => {
       <Routes>
           <Route path="notes/*" element={<Notes />} />
           <Route path="courses" element={<Courses />} />
-          <Route path="progress" element={<AcademicProgress />} />
+          <Route path="matricula/*" element={<Matricula />} />
           <Route path="fail" element={<Fail />} /> {/* Nueva Ruta */}
         </Routes>
       </div>

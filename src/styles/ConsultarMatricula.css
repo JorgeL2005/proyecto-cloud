@@ -1,0 +1,158 @@
+.consultar-matricula-container {
+    background: #f9f9f9; /* Fondo gris claro para una apariencia más limpia */
+    color: #333; /* Texto en gris oscuro */
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+  }
+  
+  .consultar-form {
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left; /* Alinear las etiquetas y entradas a la izquierda */
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555; /* Color gris medio para etiquetas */
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra más discreta */
+    font-size: 14px;
+  }
+  
+  .form-group input:focus {
+    border-color: #007bff; /* Azul para enfoque */
+    outline: none;
+  }
+  
+  .consultar-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+  
+  .consultar-button:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el cursor */
+    transform: scale(1.05);
+  }
+  
+  .error-message {
+    color: #ff4d4d; /* Rojo claro para mensajes de error */
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .result-container {
+    margin-top: 30px;
+    background: #ffffff; /* Fondo blanco para los resultados */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .result-container h3 {
+    color: #007bff; /* Azul para los títulos */
+    margin-bottom: 15px;
+  }
+  
+  .courses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .course-card {
+    background-color: #f1f1f1; /* Fondo gris claro para los cursos */
+    color: #333; /* Texto en gris oscuro */
+    border-radius: 5px;
+    padding: 15px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .course-card h4 {
+    color: #007bff; /* Azul para los IDs de los cursos */
+    margin: 0;
+  }
+  
+  .total-credits {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555; /* Gris medio */
+  }
+  .back-to-matricula-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-to-matricula-button:hover {
+    background-color: #0056b3;
+  }
+
+  .course-card {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+  }
+  
+  .success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .back-to-matricula-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-to-matricula-button:hover {
+    background-color: #0056b3;
+  }
+  

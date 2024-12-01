@@ -1,67 +1,63 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-import "../styles/CreateNote.css"; // Archivo para los estilos personalizados
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { data, useNavigate } from "react-router-dom";
 
-const CrearNote = () => {
+const DeleteNote = () => {
   const { authData } = useContext(AuthContext); // Obtener el token desde el contexto global
   const [tenantId, setTenantId] = useState("");
   const [userId, setUserId] = useState("");
-  const [cursoId, setCursoId] = useState("");
   const [periodo, setPeriodo] = useState("");
-  const [grade, setGrade] = useState("");
+  const [cursoId, setCursoId] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleDelete = async (e) => {
     e.preventDefault();
 
     // Validar campos
-    if (!tenantId || !userId || !cursoId || !periodo || !grade) {
+    if (!tenantId || !userId || !periodo || !cursoId) {
       setErrorMessage("Por favor, completa todos los campos.");
       return;
     }
 
     try {
-      // Realizar la solicitud POST al endpoint
-      const response = await axios.post(
-        "https://ztxrx0s62d.execute-api.us-east-1.amazonaws.com/prod/notas/crear",
+      // Realizar la solicitud DELETE al endpoint
+      const response = await axios.delete(
+        "https://ztxrx0s62d.execute-api.us-east-1.amazonaws.com/prod/notas/eliminar",
         {
-          tenant_id: tenantId,
-          user_id: userId,
-          curso_id: cursoId,
-          periodo,
-          grade: parseInt(grade), // Convertir la nota a un número
-        },
-        {
+          data: {
+            tenant_id: tenantId,
+            user_id: userId,
+            periodo,
+            curso_id: cursoId,
+          },
           headers: {
             Authorization: authData.token, // Agregar el token en el header
           },
         }
       );
-
+      console.log(response.data)
       if (response.status === 200) {
-        setSuccessMessage("Nota creada exitosamente.");
+        setSuccessMessage("Nota eliminada exitosamente.");
         setErrorMessage("");
         // Limpiar los campos del formulario
         setUserId("");
-        setCursoId("");
         setPeriodo("");
-        setGrade("");
+        setCursoId("");
       }
     } catch (error) {
-      console.error("Error al crear la nota:", error);
-      setErrorMessage("No se pudo crear la nota. Inténtalo más tarde.");
+      console.error("Error al eliminar la nota:", error);
+      setErrorMessage("No se pudo eliminar la nota. Inténtalo más tarde.");
       setSuccessMessage("");
     }
   };
 
   return (
-    <div className="create-note-container">
-      <h2>Crear Nota</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="delete-note-container">
+      <h2>Eliminar Nota</h2>
+      <form onSubmit={handleDelete}>
         <div className="form-group">
           <label htmlFor="tenantId">ID de Tenant:</label>
           <select
@@ -86,16 +82,6 @@ const CrearNote = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="cursoId">ID del Curso:</label>
-          <input
-            type="text"
-            id="cursoId"
-            value={cursoId}
-            onChange={(e) => setCursoId(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
           <label htmlFor="periodo">Período Académico:</label>
           <input
             type="text"
@@ -106,16 +92,16 @@ const CrearNote = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="grade">Nota:</label>
+          <label htmlFor="cursoId">ID del Curso:</label>
           <input
-            type="number"
-            id="grade"
-            value={grade}
-            onChange={(e) => setGrade(e.target.value)}
+            type="text"
+            id="cursoId"
+            value={cursoId}
+            onChange={(e) => setCursoId(e.target.value)}
             required
           />
         </div>
-        <button type="submit">Crear Nota</button>
+        <button type="submit">Eliminar Nota</button>
       </form>
       {successMessage && <p className="success-message">{successMessage}</p>}
       {errorMessage && <p className="error-message">{errorMessage}</p>}
@@ -124,4 +110,4 @@ const CrearNote = () => {
   );
 };
 
-export default CrearNote;
+export default DeleteNote;

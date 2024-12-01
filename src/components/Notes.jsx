@@ -4,6 +4,7 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import "../styles/Notes.css"; // Archivo para personalizar los estilos
 import { AuthContext } from "../context/AuthContext"; // Importar el contexto global
 import CrearNote from "./CrearNote";
+import DeleteNote from "./DeleteNote";
 import BackToHomeButton from "./BacktoHomeButton";
 
 const Notes = () => {
@@ -47,6 +48,8 @@ const Notes = () => {
       <Routes>
         {/* Ruta para la pantalla de creación de notas */}
         <Route path="create" element={<CrearNote />} />
+        {/* Ruta para la pantalla de eliminación de notas */}
+        <Route path="delete" element={<DeleteNote />} />
         {/* Ruta para la visualización principal de notas */}
         <Route
           path="/"
@@ -69,9 +72,14 @@ const Notes = () => {
               </div>
 
               {authData.role === "teacher" && (
-                <Link to="create" className="crear-nota-link">
-                  <button className="crear-nota-button">Crear Nota</button>
-                </Link>
+                <div className="teacher-buttons">
+                  <Link to="create" className="action-link">
+                    <button className="action-button">Crear Nota</button>
+                  </Link>
+                  <Link to="delete" className="action-link">
+                    <button className="action-button">Eliminar Nota</button>
+                  </Link>
+                </div>
               )}
 
               {errorMessage && (
