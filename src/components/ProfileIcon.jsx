@@ -12,7 +12,6 @@ const ProfileIcon = () => {
           border: "2px solid #007bff",
         }}
       />
-      <h3>Bienvenido al sistema académico!</h3>
     </div>
   );
 };

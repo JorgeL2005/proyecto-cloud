@@ -4,46 +4,58 @@ import ProfileIcon from "./ProfileIcon";
 import Notes from "./Notes";
 import Courses from "./Courses";
 import AcademicProgress from "./AcademicProgress";
-import "../styles/App.css";
+import "../styles/Home.css"; // Archivo CSS actualizado
 import { AuthContext } from "../context/AuthContext"; // Importar el contexto global
 
 const Home = () => {
   const navigate = useNavigate();
-  const location = useLocation(); // Hook para obtener la ruta actual
-  const { setAuthData } = useContext(AuthContext); // Obtener la función para limpiar el contexto
+  const location = useLocation();
+  const { setAuthData } = useContext(AuthContext);
 
   const handleLogout = () => {
-    // Limpiar las variables globales (token y role) del contexto
     setAuthData({
       token: null,
       role: null,
-      facultad: null
+      facultad: null,
     });
-    // Redirigir al formulario de login
     navigate("/login");
   };
 
-  // Verifica si la ruta actual es la página principal de Home
   const isHomePage = location.pathname === "/home";
 
   return (
-    <div>
-      <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px" }}>
-        <ProfileIcon />
-        <button onClick={handleLogout} style={{ padding: "10px 15px", cursor: "pointer" }}>
+    <div className="home-background">
+      <header className="home-header">
+        <div className="profile-container">
+          <ProfileIcon />
+          <h1>Bienvenido al sistema académico!</h1>
+        </div>
+        <button className="logout-button" onClick={handleLogout}>
           Logout
         </button>
       </header>
 
-      {/* Renderiza la lista de opciones solo si estás en la página principal */}
       {isHomePage && (
-        <nav>
-          <ul>
-            <li><Link to="notes">Mis Notas</Link></li>
-            <li><Link to="courses">Cursos Disponibles</Link></li>
-            <li><Link to="progress">Mi Avance académico</Link></li>
-          </ul>
-        </nav>
+        <div className="home-container">
+          <div className="home-section">
+            <Link to="notes" className="home-link">
+              <h2>Mis Notas</h2>
+              <p>Consulta tus calificaciones por periodo académico.</p>
+            </Link>
+          </div>
+          <div className="home-section">
+            <Link to="courses" className="home-link">
+              <h2>Cursos Disponibles</h2>
+              <p>Explora los cursos activos y sus detalles.</p>
+            </Link>
+          </div>
+          <div className="home-section">
+            <Link to="progress" className="home-link">
+              <h2>Mi Avance Académico</h2>
+              <p>Revisa tu progreso académico y tus logros.</p>
+            </Link>
+          </div>
+        </div>
       )}
 
       <div>

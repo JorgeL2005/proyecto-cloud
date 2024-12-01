@@ -1,85 +1,79 @@
-import React, { useState } from "react";
-import "../styles/Notes.css";
-import BackToHomeButton from "./BacktoHomeButton"; // Importamos el botón de regreso
+import React, { useState, useContext } from "react";
+import axios from "axios";
+import "../styles/Notes.css"; // Archivo para personalizar los estilos
+import { AuthContext } from "../context/AuthContext"; // Importar el contexto global
+import BackToHomeButton from "./BacktoHomeButton";
 
 const Notes = () => {
-  // Datos de ejemplo para los ciclos y notas
-  const academicCycles = [
-    {
-      cycle: "2024-1",
-      courses: [
-        { name: "Cálculo 1", grade: 18 },
-        { name: "Matemáticas Discretas 1", grade: 15 },
-        { name: "Comunicación", grade: 13 },
-      ],
-    },
-    {
-      cycle: "2024-2",
-      courses: [
-        { name: "Cálculo 2", grade: 16 },
-        { name: "Física General", grade: 14 },
-        { name: "Química General", grade: 12 },
-      ],
-    },
-    {
-      cycle: "2025-1",
-      courses: [
-        { name: "Álgebra Lineal", grade: 19 },
-        { name: "Programación 1", grade: 17 },
-        { name: "Estadística", grade: 11 },
-      ],
-    },
-  ];
+  const [periodo, setPeriodo] = useState(""); // Estado para almacenar el período académico
+  const [notas, setNotas] = useState([]); // Estado para almacenar las notas obtenidas
+  const [errorMessage, setErrorMessage] = useState(""); // Estado para manejar errores
+  const { authData } = useContext(AuthContext); // Obtener el token desde AuthContext
 
-  const [selectedCycle, setSelectedCycle] = useState(academicCycles[0].cycle);
+  const handleConsultar = async () => {
+    if (!periodo) {
+      setErrorMessage("Por favor selecciona un período académico.");
+      return;
+    }
 
-  // Obtiene los cursos del ciclo seleccionado
-  const selectedCourses = academicCycles.find(
-    (cycle) => cycle.cycle === selectedCycle
-  )?.courses;
+    try {
+      console.log("Token usado:", authData.token);
+      console.log("Periodo seleccionado:", periodo);
+
+      // Realizar la solicitud GET con Axios y enviar el body
+      const response = await axios.get(
+        "https://ztxrx0s62d.execute-api.us-east-1.amazonaws.com/prod/notas/NotasPorPeriodo",
+        {
+          headers: {
+            Authorization: authData.token, // Enviar el token en el header
+          },
+          data: { periodo }, // Enviar el body con el período
+        }
+      );
+
+      // Validar si la respuesta es exitosa
+      console.log(response.data);
+      if (response.data.body && response.data.body.notas) {
+        setNotas(response.data.body.notas); // Actualizar las notas obtenidas
+        setErrorMessage(""); // Limpiar mensaje de error
+      } else {
+        setNotas([]);
+        setErrorMessage("No se encontraron notas para el período seleccionado.");
+      }
+    } catch (error) {
+      console.error("Error al obtener las notas:", error);
+      setErrorMessage("No se pudieron obtener las notas. Inténtalo más tarde.");
+    }
+  };
 
   return (
     <div className="notes-container">
-      <h2>Notas Académicas</h2>
-
-      {/* Selector para elegir el ciclo académico */}
-      <div className="cycle-selector">
-        <label htmlFor="cycle">Selecciona un ciclo académico:</label>
+      <h2>Consultar Notas</h2>
+      <div className="select-box">
+        <label htmlFor="periodo">Selecciona el período académico:</label>
         <select
-          id="cycle"
-          value={selectedCycle}
-          onChange={(e) => setSelectedCycle(e.target.value)}
+          id="periodo"
+          value={periodo}
+          onChange={(e) => setPeriodo(e.target.value)}
         >
-          {academicCycles.map((cycle, index) => (
-            <option key={index} value={cycle.cycle}>
-              {cycle.cycle}
-            </option>
-          ))}
+          <option value="">-- Selecciona --</option>
+          <option value="2024-1">2024-1</option>
+          <option value="2024-2">2024-2</option>
+          <option value="2025-1">2025-1</option>
         </select>
+        <button onClick={handleConsultar}>Consultar</button>
       </div>
 
-      {/* Lista de notas del ciclo seleccionado */}
-      <div className="notes-list">
-        {selectedCourses && selectedCourses.length > 0 ? (
-          selectedCourses.map((course, index) => (
-            <div className="note-card" key={index}>
-              <h3>{course.name}</h3>
-              <p>Nota: {course.grade}</p>
-              <p
-                className={
-                  course.grade >= 11 ? "status-approved" : "status-failed"
-                }
-              >
-                Estado: {course.grade >= 11 ? "Aprobado" : "Desaprobado"}
-              </p>
-            </div>
-          ))
-        ) : (
-          <p>No hay datos disponibles para este ciclo.</p>
-        )}
-      </div>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      {/* Botón para regresar a la página de inicio */}
+      <div className="notas-list">
+        {notas.map((nota) => (
+          <div key={nota.curso_id} className="nota-card">
+            <h3>Curso ID: {nota.curso_id}</h3>
+            <p>Nota: {nota.grade}</p>
+          </div>
+        ))}
+      </div>
       <BackToHomeButton />
     </div>
   );

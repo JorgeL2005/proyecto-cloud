@@ -8,6 +8,13 @@ const Courses = () => {
   const [courses, setCourses] = useState([]); // Estado para almacenar los cursos
   const [errorMessage, setErrorMessage] = useState(""); // Estado para manejar errores
 
+  useEffect(() => {
+    document.body.style.backgroundColor = "#ffffff"; // Cambiar fondo a blanco al entrar
+    return () => {
+      document.body.style.backgroundColor = ""; // Restaurar fondo al salir
+    };
+  }, []);
+
   const fetchCourses = async () => {
     try {
       const response = await fetch(
