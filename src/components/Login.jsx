@@ -71,6 +71,7 @@ const Login = () => {
     }
   };
 
+
   return (
     <div className="auth-container">
       <div className="auth-box">
@@ -88,6 +89,7 @@ const Login = () => {
             <option value="FI">FI</option>
             <option value="FN">FN</option>
             <option value="global">Global</option>
+            <option value="org123">org123</option>
           </select>
           <input
             type="text"

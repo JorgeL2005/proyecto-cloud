@@ -4,6 +4,7 @@ import ProfileIcon from "./ProfileIcon";
 import Notes from "./Notes";
 import Courses from "./Courses";
 import AcademicProgress from "./AcademicProgress";
+import Fail from "./Fail";
 import "../styles/Home.css"; // Archivo CSS actualizado
 import { AuthContext } from "../context/AuthContext"; // Importar el contexto global
 
@@ -51,18 +52,25 @@ const Home = () => {
           </div>
           <div className="home-section">
             <Link to="progress" className="home-link">
-              <h2>Mi Avance Académico</h2>
-              <p>Revisa tu progreso académico y tus logros.</p>
+              <h2>Matricula</h2>
+              <p>Matriculate en los cursos que quieras.</p>
+            </Link>
+          </div>
+          <div className="home-section">
+            <Link to="fail" className="home-link">
+              <h2>Riesgo Académico</h2>
+              <p>Revisa en que cursos necesitas mejorar.</p>
             </Link>
           </div>
         </div>
       )}
 
       <div>
-        <Routes>
+      <Routes>
           <Route path="notes" element={<Notes />} />
           <Route path="courses" element={<Courses />} />
           <Route path="progress" element={<AcademicProgress />} />
+          <Route path="fail" element={<Fail />} /> {/* Nueva Ruta */}
         </Routes>
       </div>
     </div>

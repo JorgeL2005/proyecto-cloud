@@ -20,14 +20,14 @@ const Notes = () => {
       console.log("Token usado:", authData.token);
       console.log("Periodo seleccionado:", periodo);
 
-      // Realizar la solicitud GET con Axios y enviar el body
-      const response = await axios.get(
+      // Realizar la solicitud POST con Axios
+      const response = await axios.post(
         "https://ztxrx0s62d.execute-api.us-east-1.amazonaws.com/prod/notas/NotasPorPeriodo",
+        { periodo }, // Body del request
         {
           headers: {
-            Authorization: authData.token, // Enviar el token en el header
+            Authorization: authData.token, // Token en el header
           },
-          data: { periodo }, // Enviar el body con el período
         }
       );
 
@@ -46,6 +46,8 @@ const Notes = () => {
     }
   };
 
+ 
+  
   return (
     <div className="notes-container">
       <h2>Consultar Notas</h2>
