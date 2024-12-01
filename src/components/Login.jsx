@@ -77,7 +77,7 @@ const Login = () => {
       <div className="auth-box">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
-          <label htmlFor="tenant_id">Tenant ID:</label>
+          <label htmlFor="tenant_id">Seleccione su facultad:</label>
           <select
             id="tenant_id"
             name="tenant_id"
@@ -107,7 +107,7 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-          <label htmlFor="role">Role:</label>
+          <label htmlFor="role">Seleccione su rol:</label>
           <select
             id="role"
             name="role"

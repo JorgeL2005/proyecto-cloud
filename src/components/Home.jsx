@@ -67,7 +67,7 @@ const Home = () => {
 
       <div>
       <Routes>
-          <Route path="notes" element={<Notes />} />
+          <Route path="notes/*" element={<Notes />} />
           <Route path="courses" element={<Courses />} />
           <Route path="progress" element={<AcademicProgress />} />
           <Route path="fail" element={<Fail />} /> {/* Nueva Ruta */}

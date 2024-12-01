@@ -67,7 +67,7 @@ const Register = () => {
         <h2>Register</h2>
         <div className="form-scroll-container">
           <form onSubmit={handleRegister}>
-            <label htmlFor="tenant_id">Tenant ID:</label>
+            <label htmlFor="tenant_id">Eliga su facultad:</label>
             <select
               id="tenant_id"
               name="tenant_id"
@@ -96,7 +96,7 @@ const Register = () => {
               onChange={handleChange}
               required
             />
-            <label htmlFor="role">Role:</label>
+            <label htmlFor="role">Eliga su rol:</label>
             <select
               id="role"
               name="role"
@@ -104,9 +104,9 @@ const Register = () => {
               onChange={handleChange}
               required
             >
-              <option value="student">Student</option>
-              <option value="teacher">Teacher</option>
-              <option value="admin">Administrator</option>
+              <option value="student">Estudiante</option>
+              <option value="teacher">Profesor</option>
+              <option value="admin">Admin</option>
             </select>
             <input
               type="text"
@@ -124,7 +124,7 @@ const Register = () => {
               onChange={handleChange}
               required
             />
-            <label htmlFor="gender">Gender:</label>
+            <label htmlFor="gender">Genero:</label>
             <select
               id="gender"
               name="gender"
@@ -132,9 +132,9 @@ const Register = () => {
               onChange={handleChange}
               required
             >
-              <option value="female">Female</option>
-              <option value="male">Male</option>
-              <option value="other">Other</option>
+              <option value="female">Mujer</option>
+              <option value="male">Hombre</option>
+              <option value="other">Otro</option>
             </select>
             <input
               type="date"
