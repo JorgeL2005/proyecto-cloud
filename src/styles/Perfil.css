@@ -1,0 +1,37 @@
+.perfil-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .perfil-container h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+  
+  .perfil-details {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.8;
+    text-align: left;
+  }
+  
+  .perfil-details p {
+    margin: 10px 0;
+  }
+  
+  .perfil-details strong {
+    color: #007bff;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
